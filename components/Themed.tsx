@@ -28,6 +28,7 @@ type ThemeProps = {
   darkColor?: string;
 };
 
+export type CardProps = ThemeProps & DefaultText['props']
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
 
@@ -39,6 +40,13 @@ export function Text(props: TextProps) {
 }
 
 export function View(props: ViewProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+
+  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
+export function Card(props: CardProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
