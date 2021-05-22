@@ -1,0 +1,38 @@
+Type Meditation {
+	Id: ID!
+	description: String
+	photos: [String]
+link: String
+}
+
+type Mutation{
+	addMeditation(data: AddMeditationInput!): Meditation!
+	removeMeditation(data: RemoveMeditationInput!): ID!
+	updateMediation(data: UpdateMeditationInput!): Meditation!
+}
+
+type Query {
+	meditation(data: MeditationInput!): Meditation!
+	meditations: [Meditation]!
+}
+
+input MeditationInput {
+id: ID!
+}
+
+input AddMeditationInput {
+	description: String
+	photos: [String]
+link: String
+}
+
+input RemoveMeditationInput {
+	id: ID!
+}
+
+input UpdateMeditationInput {
+	Id: ID!
+	description: String
+	photos: [String]
+link: String
+}

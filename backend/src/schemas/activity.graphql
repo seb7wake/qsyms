@@ -1,0 +1,47 @@
+type Activity {
+	id: ID!
+	exercise: Exercise
+	date: any
+	length: Int
+}
+
+type Mutation {
+	addActivity(data: AddActivityInput!): Activity!
+	removeActivity(data: RemoveActivityInput!): ID!
+	updateActivity(data: UpdateActivityInput!): Activity!
+}
+
+type Query {
+	activities: [Activity]!
+	activity(data: ActivityInput!): Activity!
+}
+
+
+input ActivityInput {
+	id: ID!
+}
+
+
+input AddActivityInput {
+	exercise: Exercise!
+	date: any!
+	length: Int!
+}
+
+input RemoveActivityInput {
+	id: ID!
+}
+
+input UpdateActivityInput {
+	id: ID!
+	exercise: Exercise
+	date: any
+	length: Int
+}
+
+enum Exercise {
+	MEDITATION
+	BREATHING
+	SLEEP
+	GROUP_SESSION
+}

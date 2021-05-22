@@ -1,0 +1,35 @@
+type Quote {
+	Id: ID!
+	content: String
+	author: String
+}
+
+type Query {
+	quote(data: QuoteInput!): Quote!
+	quotes: [Quote]!
+}
+
+type Mutation {
+	addQuote(data: AddQuoteInput!): Quote!
+	removeQuote(data: RemoveQuoteInput!): ID!
+	updateQuote(data: UpdateQuoteInput!): Quote!
+}
+
+type AddQuoteInput {
+	content: String
+	author: String
+}
+
+type RemoveQuoteInput {
+	id: ID!
+}
+
+type UpdateQuoteInput {
+	id: ID!
+	content: String
+	author: String
+}
+
+type QuoteInput {
+	QuoteID: ID!
+}

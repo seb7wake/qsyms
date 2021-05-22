@@ -1,0 +1,39 @@
+type User {
+	id: ID!
+	email: String
+	password: String
+	loggedActivities: [Activity]
+	scheduledActivities: [Activity]
+}
+
+type Query {
+	user(data: UserInput!): User!
+	users: [User]!
+}
+
+type Mutation {
+	addUser(data: AddUserInput!): User!
+	removeUser(data: RemoveUserInput!): ID!
+	updateUser(data: UpdateUserInput!): User!
+}
+
+input AddUserInput {
+	email: String
+	password: String
+}
+
+input RemoveUserInput {
+	id: ID!
+}
+
+input UpdateUserInput {
+	id: ID!
+	email: String
+	password: String
+	loggedActivities: [Activity]
+	scheduledActivities: [Activity]
+}
+
+input UserInput {
+	id: ID!
+}
