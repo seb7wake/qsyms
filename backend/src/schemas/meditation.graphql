@@ -1,8 +1,8 @@
 Type Meditation {
 	Id: ID!
-	description: String
+	description: String!	
 	photos: [String]
-link: String
+	link: String
 }
 
 type Mutation{
@@ -21,9 +21,9 @@ id: ID!
 }
 
 input AddMeditationInput {
-	description: String
+	description: String!
 	photos: [String]
-link: String
+	link: String
 }
 
 input RemoveMeditationInput {
@@ -32,7 +32,7 @@ input RemoveMeditationInput {
 
 input UpdateMeditationInput {
 	Id: ID!
-	description: String
+	description: String!
 	photos: [String]
-link: String
+	link: String
 }

@@ -1,9 +1,11 @@
 type User {
 	id: ID!
-	email: String
-	password: String
+	name: String!
+	email: String!
+	password: String!
 	loggedActivities: [Activity]
 	scheduledActivities: [Activity]
+	createdAt: String
 }
 
 type Query {
@@ -18,8 +20,10 @@ type Mutation {
 }
 
 input AddUserInput {
-	email: String
-	password: String
+	name: String!
+	email: String!
+	password: String!
+	createdAt: String!
 }
 
 input RemoveUserInput {
@@ -28,10 +32,12 @@ input RemoveUserInput {
 
 input UpdateUserInput {
 	id: ID!
+	name: String!
 	email: String
 	password: String
 	loggedActivities: [Activity]
 	scheduledActivities: [Activity]
+	createdAt: String
 }
 
 input UserInput {
